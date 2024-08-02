@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-react-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-react
+  template:
+    metadata:
+      labels:
+        app: hello-world-react
+    spec:
+      containers:
+      - name: hello-world-react
+        image: iamjaybacancy/hello-world-react:v1 # Ensure this is the correct image tag
+        ports:
+        - containerPort: 80
